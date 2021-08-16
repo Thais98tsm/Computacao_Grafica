@@ -51,8 +51,8 @@ void Desenha(){
     glLoadIdentity();
     glClear(GL_COLOR_BUFFER_BIT);
     //Desenha os eixos X e Y da cor preta
-    /*glColor3f(0.0,0.0,0.0);
-    Eixos();*/ //Caso de teste
+    glColor3f(0.0,0.0,0.0);
+    Eixos(); //Caso de teste
     //Primeiro lado do hexágono
     glColor3f(1.0, 0.0, 0.0);//Cor vermelha
     glTranslatef(raio, 0.0, 0.0);
