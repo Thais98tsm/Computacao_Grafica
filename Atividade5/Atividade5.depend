@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1629424117 source:c:\users\thais\documents\engenharia da computação\9º semestre\laboratório de computação gráfica\projetos\atividade1\main.cpp
+1630367717 source:c:\users\thais\documents\engenharia da computação\9º semestre\laboratório de computação gráfica\projetos\atividade5\main.cpp
 	<gl/glut.h>
 	<stdlib.h>
 	<math.h>
+	<stdio.h>
 
 1522183854 c:\program files (x86)\codeblocks\glut\include\gl\glut.h
 	<windows.h>
