@@ -1,8 +1,8 @@
 /**
- * Projeto 2 - Computação Gráfica
- * Desenho de uma estrela de 8 pontas
+ * Projeto 5 - Computação Gráfica
+ * Desenho de uma estrela de 8 pontas dupla fixas no ponto médio
  * Thais Silva Mendes
- * 16/08/2021
+ * 30/08/2021
 */
 
 #include <gl/glut.h>
@@ -53,14 +53,14 @@ void Eixos(){
 /* Desenha o retângulo */
 void Retangulo(bool flag){
     if(!flag){//Estrela com a ponta dobrada
-        glBegin(GL_LINE_LOOP);
+        glBegin(GL_QUADS);
             glVertex2f(-metadeDiv2 - sobra, -0.5);
             glVertex2f(metadeDiv2 + sobra, -0.5);
             glVertex2f(metadeDiv2 + sobra, 0.5);
             glVertex2f(-metadeDiv2 - sobra, 0.5);
         glEnd();
     }else{//Estrela normal
-        glBegin(GL_LINE_LOOP);
+        glBegin(GL_QUADS);
             glVertex2f(-metade - sobra, -0.5);
             glVertex2f(metade + sobra, -0.5);
             glVertex2f(metade + sobra, 0.5);
@@ -76,8 +76,8 @@ void Desenha_ponta(double alpha, double raioE, bool flag){
     double raioEmenosx = cos(alpha * PI / 180) * metade * 2;
     double theta = (180 - (2 * alpha));//3º ângulo do triângulo menor
     double gama = 180 - 22.5 - alpha;//3º ângulo da 1º situação
-    double delta = (360 - (2 * gama));//Angulo externo a 1º estrela
-    double epsilon = (360 - (2 * delta)) / 2;
+    double delta = (360 - (2 * gama));//Angulo externo a 1º estrela e também do quadrado
+    double epsilon = (360 - (2 * delta)) / 2;//Outro ângulo do quadrado
 
     if(flag){//Estrela normal
         glColor3f(1.0, 0.0, 0.0);//Cor vermelha
@@ -197,8 +197,8 @@ void Inicializa(){
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);//Define o modo do display inicial
     glutInitWindowPosition(200,50);//Posição da janela
     glutInitWindowSize(750, 750);//Tamanho da janela
-	glutCreateWindow("Atividade 2");//Nome da janela
-    glClearColor(1.0f, 1.0f, 1.0f, 0.0f);// Define a cor de fundo da janela de visualização como branca
+	glutCreateWindow("Atividade 5");//Nome da janela
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);// Define a cor de fundo da janela de visualização como branca
 }
 
 /* Inicializa o sistema de coordenadas */

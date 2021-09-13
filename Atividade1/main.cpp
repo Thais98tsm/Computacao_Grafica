@@ -12,7 +12,7 @@
 #define PI 3.14159265
 
 /* Variáveis Globais */
-int raio = 20;//Raio do hexadecágono
+int raio = 10;//Raio do hexadecágono
 float tamanho = raio * sin(11.25 * PI / 180);//Calcula a metade do tamanho da ripa usando graus
 float delta = (tamanho * 0.1);//Calcula o tamanho do excedente de cada lado da ripa
 
