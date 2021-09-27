@@ -20,6 +20,7 @@ double sobra = (metade * 0.1);//Calcula o tamanho do excedente de cada lado da r
 GLdouble obsX = 0, obsY = 0, obsZ = 150; //Posição incial do observador
 GLfloat angle, fAspect;//Altura da visualização em y e área de visualização em x
 bool usuario = false, controle = true;//usuario = Verifica se o usuário quer animar a estrela | controle = controla se a estrela deve aumentar ou diminuir
+int tempo = 0;
 
 /* Realiza os cálculos para descobrir o ângulo alpha */
 double Calculos(){
@@ -70,19 +71,36 @@ void SpecialKeys(int key, int x, int y){
 
 /* Função callback chamada pela GLUT a cada intervalo de tempo */
 void Timer(int value){
+
     if(raioE >= tamanho && controle){
         raioE -= 0.05;
         controle = true;
     }
-    if((raioE < tamanho || raioE == tamanho) || !controle){
+    else if((raioE < tamanho || raioE == tamanho) || !controle){
         raioE += 0.05;
         controle = false;
+    }
+
+
+    if(raioE >= tamanho && controle){
+        controle = true;
+        if(raioE - 0.05 < tamanho){
+            controle = false;
+        }
+        raioE -= 0.05;
+    }
+    if((raioE < tamanho || raioE == tamanho) || !controle){
+    controle = false;
+        if(raioE+0.05 >= raioH){
+            controle = true;
+        }
+        raioE += 0.05;
     }
 
     // Redesenha a estrela com o novo raio
     glutPostRedisplay();
     if(usuario)
-        glutTimerFunc(50, Timer, 1);
+        glutTimerFunc(50 - tempo, Timer, 1);
 
 }
 
