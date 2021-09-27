@@ -168,8 +168,8 @@ int main(void)
 	glutCreateWindow("Atividade 6");
 	glutDisplayFunc(Desenha);
     glutReshapeFunc(AlteraTamanhoJanela);
-	glutMouseFunc(GerenciaMouse);
 	glutSpecialFunc(SpecialKeys);
+	glutMouseFunc(GerenciaMouse);
 	Inicializa();
 	glutMainLoop();
 }
